@@ -1,9 +1,8 @@
 #!/usr/bin/python3.7
-lines = []
-with open('input2.txt') as f:
-    for l in f.readlines():
-         if l != '\n':
-             lines.append(l.strip())
+
+from util import get_input_lines
+    
+lines = get_input_lines('input2.txt')
 
 length = len(lines[0])
             
@@ -12,9 +11,7 @@ def lines_close(l1, l2, l_len):
     while c <= 1 and i in range(l_len):
         if l1[i] != l2[i]:
             c = c + 1
-            
         i = i + 1
-        
     return c == 1
     
 def clean_line(l1, l2, l_len):
@@ -37,6 +34,4 @@ for line1 in lines:
         
 print(found1)
 print(found2)
-
 print(clean_line(found1, found2, length))
-        
